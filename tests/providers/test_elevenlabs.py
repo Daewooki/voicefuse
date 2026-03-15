@@ -10,7 +10,7 @@ from voicefuse.exceptions import ProviderError, AuthenticationError
 
 @respx.mock
 def test_elevenlabs_tts_success():
-    respx.post("https://api.elevenlabs.io/v1/text-to-speech/Rachel").mock(
+    respx.post("https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM").mock(
         return_value=httpx.Response(200, content=b"fake-elevenlabs-audio")
     )
     provider = ElevenLabsProvider(api_key="el-test")
@@ -23,7 +23,7 @@ def test_elevenlabs_tts_success():
 
 @respx.mock
 def test_elevenlabs_tts_with_model():
-    route = respx.post("https://api.elevenlabs.io/v1/text-to-speech/Rachel").mock(
+    route = respx.post("https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM").mock(
         return_value=httpx.Response(200, content=b"audio")
     )
     provider = ElevenLabsProvider(api_key="el-test")
@@ -34,7 +34,7 @@ def test_elevenlabs_tts_with_model():
 
 @respx.mock
 def test_elevenlabs_tts_auth_error():
-    respx.post("https://api.elevenlabs.io/v1/text-to-speech/Rachel").mock(
+    respx.post("https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM").mock(
         return_value=httpx.Response(401, json={"detail": {"message": "Unauthorized"}})
     )
     provider = ElevenLabsProvider(api_key="bad-key")
@@ -44,7 +44,7 @@ def test_elevenlabs_tts_auth_error():
 
 @respx.mock
 def test_elevenlabs_tts_server_error():
-    respx.post("https://api.elevenlabs.io/v1/text-to-speech/Rachel").mock(
+    respx.post("https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM").mock(
         return_value=httpx.Response(500, text="Internal server error")
     )
     provider = ElevenLabsProvider(api_key="el-test")

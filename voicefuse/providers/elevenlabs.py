@@ -12,6 +12,19 @@ from voicefuse.types import AudioResponse, PricingInfo, VoiceInfo
 
 ELEVENLABS_BASE_URL = "https://api.elevenlabs.io/v1"
 
+# Map display names to actual ElevenLabs voice IDs
+VOICE_NAME_TO_ID = {
+    "Rachel": "21m00Tcm4TlvDq8ikWAM",
+    "Domi": "AZnzlk1XvdvUeBnXmlld",
+    "Bella": "EXAVITQu4vr4xnSDxMaL",
+    "Antoni": "ErXwobaYiN019PkySvjV",
+    "Elli": "MF3mGyEYCl7XYWbV9V6O",
+    "Josh": "TxGEqnHWrfWFTfGW9XjX",
+    "Arnold": "VR6AewLTigWG4xSOukaG",
+    "Adam": "pNInz6obpgDQGcFmaJgB",
+    "Sam": "yoZ06aMxZJJ28mfd3POQ",
+}
+
 
 class ElevenLabsProvider(BaseProvider):
     """ElevenLabs TTS provider."""
@@ -31,7 +44,9 @@ class ElevenLabsProvider(BaseProvider):
         **kwargs,
     ) -> AudioResponse:
         model = kwargs.get("model", self._default_model)
-        url = f"{ELEVENLABS_BASE_URL}/text-to-speech/{voice}"
+        # Resolve display name to actual voice ID
+        voice_id = VOICE_NAME_TO_ID.get(voice, voice)
+        url = f"{ELEVENLABS_BASE_URL}/text-to-speech/{voice_id}"
 
         start = time.monotonic()
         response = httpx.post(
