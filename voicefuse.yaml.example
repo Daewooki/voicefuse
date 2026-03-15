@@ -1,0 +1,24 @@
+# VoiceFuse Configuration
+# Copy this file to voicefuse.yaml and fill in your API keys.
+# You can also use environment variables: ${OPENAI_API_KEY}
+
+providers:
+  openai:
+    api_key: ${OPENAI_API_KEY}
+    default_voice: alloy
+    default_model: tts-1-hd
+  elevenlabs:
+    api_key: ${ELEVENLABS_API_KEY}
+    default_voice: Rachel
+  google:
+    api_key: ${GOOGLE_API_KEY}
+
+defaults:
+  provider: openai
+  output_format: mp3
+  fallback:
+    - elevenlabs
+    - google
+
+routing:
+  strategy: cheapest  # cheapest | best_quality | lowest_latency | round_robin
