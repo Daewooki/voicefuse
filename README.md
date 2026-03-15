@@ -4,7 +4,7 @@
 
 **LiteLLM for Voice -- One API for every Voice AI provider.**
 
-[![CI](https://github.com/daewook/voicefuse/actions/workflows/ci.yml/badge.svg)](https://github.com/daewook/voicefuse/actions)
+[![CI](https://github.com/Daewooki/voicefuse/actions/workflows/ci.yml/badge.svg)](https://github.com/Daewooki/voicefuse/actions)
 [![PyPI](https://img.shields.io/pypi/v/voicefuse)](https://pypi.org/project/voicefuse/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -163,7 +163,7 @@ defaults:
 Adding a provider is easy. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bash
-git clone https://github.com/daewook/voicefuse.git
+git clone https://github.com/Daewooki/voicefuse.git
 cd voicefuse
 pip install -e ".[dev]"
 pytest -v  # 70+ tests

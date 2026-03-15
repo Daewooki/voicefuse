@@ -53,7 +53,7 @@ Add the env variable mapping to `voicefuse/config.py` `ENV_KEY_MAP`.
 ## Development Setup
 
 ```bash
-git clone https://github.com/daewook/voicefuse.git
+git clone https://github.com/Daewooki/voicefuse.git
 cd voicefuse
 pip install -e ".[dev]"
 pytest -v
